@@ -96,7 +96,6 @@ if [[ -e "${LOG_FILE}" && -z "${ERRORS_LOG}" ]]; then
         PRT_COUNT=$((${PRT_COUNT} + 1))
     done
 else
-    echo "${ERRORS_LOG}"
     sleep 10h
 fi
 
