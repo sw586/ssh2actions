@@ -123,7 +123,7 @@ Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
         #echo -e "提示:运行'touch ${CONTINUE_FILE}' 进入下一步."
         #echo "------------------------------------------------------------------------"
         #PRT_COUNT=$((${PRT_COUNT} + 1))
-    #done
+    done
 else
     echo "${ERRORS_LOG}"
     exit 4
