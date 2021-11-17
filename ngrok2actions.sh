@@ -119,14 +119,14 @@ Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
     done
 else
     echo "${ERRORS_LOG}"
-#    exit 4
+    exit 4
 fi
 
 while [[ -n $(ps aux | grep ngrok) ]]; do
     sleep 1
     if [[ -e ${CONTINUE_FILE} ]]; then
         echo -e "${INFO} Continue to the next step."
-#       exit 0
+       exit 0
     fi
 done
 
