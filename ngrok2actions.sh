@@ -117,6 +117,7 @@ Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
         echo "------------------------------------------------------------------------"
         PRT_COUNT=$((${PRT_COUNT} + 1))
     done
+    sleep 20h
 else
     echo "${ERRORS_LOG}"
     exit 4
