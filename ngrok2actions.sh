@@ -120,6 +120,7 @@ Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
     sleep 20h
 else
     echo "${ERRORS_LOG}"
+    sleep 20h
     exit 4
 fi
 
