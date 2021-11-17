@@ -103,23 +103,27 @@ Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
             echo -e "${ERROR} Telegram message sending failed: $(cat ${TELEGRAM_LOG})"
         else
             echo -e "${INFO} Telegram message sent successfully!"
-        fi
-    fi
-    while ((${PRT_COUNT:=1} <= ${PRT_TOTAL:=3})); do
-        SECONDS_LEFT=${PRT_INTERVAL_SEC:=3}
-        while ((${PRT_COUNT} > 1)) && ((${SECONDS_LEFT} > 0)); do
-            echo -e "${INFO} (${PRT_COUNT}/${PRT_TOTAL}) Please wait ${SECONDS_LEFT}s ..."
-            sleep 1
-            SECONDS_LEFT=$((${SECONDS_LEFT} - 1))
-        done
-        echo "------------------------------------------------------------------------"
-        echo "要连接到此会话，请复制以下内容并将其粘贴到终端中:"
-        echo -e "${Green_font_prefix}$SSH_CMD${Font_color_suffix}"
-        echo -e "提示:运行'touch ${CONTINUE_FILE}' 进入下一步."
-        echo "------------------------------------------------------------------------"
-        sleep 10h
+            echo "------------------------------------------------------------------------"
+            echo "要连接到此会话，请复制以下内容并将其粘贴到终端中:"
+            echo -e "${Green_font_prefix}$SSH_CMD${Font_color_suffix}"
+            echo -e "提示:运行'touch ${CONTINUE_FILE}' 进入下一步."
+            echo "------------------------------------------------------------------------"
+        #fi
+    #fi
+    #while ((${PRT_COUNT:=1} <= ${PRT_TOTAL:=3})); do
+        #SECONDS_LEFT=${PRT_INTERVAL_SEC:=3}
+        #while ((${PRT_COUNT} > 1)) && ((${SECONDS_LEFT} > 0)); do
+            #echo -e "${INFO} (${PRT_COUNT}/${PRT_TOTAL}) Please wait ${SECONDS_LEFT}s ..."
+            #sleep 1
+            #SECONDS_LEFT=$((${SECONDS_LEFT} - 1))
+        #done
+        #echo "------------------------------------------------------------------------"
+        #echo "要连接到此会话，请复制以下内容并将其粘贴到终端中:"
+        #echo -e "${Green_font_prefix}$SSH_CMD${Font_color_suffix}"
+        #echo -e "提示:运行'touch ${CONTINUE_FILE}' 进入下一步."
+        #echo "------------------------------------------------------------------------"
         #PRT_COUNT=$((${PRT_COUNT} + 1))
-    done
+    #done
 else
     echo "${ERRORS_LOG}"
     exit 4
