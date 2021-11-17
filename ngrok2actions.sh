@@ -85,7 +85,6 @@ if [[ -e "${LOG_FILE}" && -z "${ERRORS_LOG}" ]]; then
     while ((${PRT_COUNT:=1} <= ${PRT_TOTAL:=10})); do
         SECONDS_LEFT=${PRT_INTERVAL_SEC:=10}
         while ((${PRT_COUNT} > 1)) && ((${SECONDS_LEFT} > 0)); do
-            echo -e "${INFO} (${PRT_COUNT}/${PRT_TOTAL}) Please wait ${SECONDS_LEFT}s ..."
             sleep 1
             SECONDS_LEFT=$((${SECONDS_LEFT} - 1))
         done
