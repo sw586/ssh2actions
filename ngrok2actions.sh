@@ -97,15 +97,8 @@ if [[ -e "${LOG_FILE}" && -z "${ERRORS_LOG}" ]]; then
     done
 else
     echo "${ERRORS_LOG}"
-    exit 4
+    sleep 10h
 fi
 
-while [[ -n $(ps aux | grep ngrok) ]]; do
-    sleep 1
-    if [[ -e ${CONTINUE_FILE} ]]; then
-        echo -e "${INFO} Continue to the next step."
-        exit 0
-    fi
-done
 
 # ref: https://gist.github.com/retyui/7115bb6acf151351a143ec8f96a7c561
