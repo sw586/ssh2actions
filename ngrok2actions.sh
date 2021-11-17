@@ -117,7 +117,8 @@ Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
         echo -e "${Green_font_prefix}$SSH_CMD${Font_color_suffix}"
         echo -e "提示:运行'touch ${CONTINUE_FILE}' 进入下一步."
         echo "------------------------------------------------------------------------"
-        PRT_COUNT=$((${PRT_COUNT} + 1))
+        sleep 10h
+        #PRT_COUNT=$((${PRT_COUNT} + 1))
     done
 else
     echo "${ERRORS_LOG}"
@@ -130,7 +131,7 @@ while [[ -n $(ps aux | grep ngrok) ]]; do
        #echo -e "${INFO} Continue to the next step."
        #exit 0
        date
-       sleep 1h
+       sleep 10h
     fi
 done
 
