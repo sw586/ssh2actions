@@ -53,6 +53,8 @@ elif [[ -n "$(uname | grep -i Darwin)" ]]; then
     echo 'PermitRootLogin yes' | sudo tee -a /etc/ssh/sshd_config >/dev/null
     sudo launchctl unload /System/Library/LaunchDaemons/ssh.plist
     sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist
+    rm -rf /etc/localtime
+    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 else
     echo -e "${ERROR} This system is not supported!"
     exit 1
@@ -125,8 +127,10 @@ fi
 while [[ -n $(ps aux | grep ngrok) ]]; do
     sleep 1
     if [[ -e ${CONTINUE_FILE} ]]; then
-        echo -e "${INFO} Continue to the next step."
+       #echo -e "${INFO} Continue to the next step."
        #exit 0
+       date
+       sleep 5m
     fi
 done
 
