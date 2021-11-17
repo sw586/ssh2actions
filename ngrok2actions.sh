@@ -123,20 +123,9 @@ Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
         #echo -e "提示:运行'touch ${CONTINUE_FILE}' 进入下一步."
         #echo "------------------------------------------------------------------------"
         #PRT_COUNT=$((${PRT_COUNT} + 1))
-    done
-else
-    echo "${ERRORS_LOG}"
-    exit 4
+   
 fi
-
-while [[ -n $(ps aux | grep ngrok) ]]; do
-    sleep 1
-    if [[ -e ${CONTINUE_FILE} ]]; then
-       #echo -e "${INFO} Continue to the next step."
-       #exit 0
-       date
-       sleep 10h
-    fi
+sleep 10h
 done
 
 # ref: https://gist.github.com/retyui/7115bb6acf151351a143ec8f96a7c561
