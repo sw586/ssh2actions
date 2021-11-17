@@ -105,17 +105,17 @@ Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
             echo -e "${INFO} Telegram message sent successfully!"
         fi
     fi
-    while ((${PRT_COUNT:=1} <= ${PRT_TOTAL:=10})); do
-        SECONDS_LEFT=${PRT_INTERVAL_SEC:=10}
+    while ((${PRT_COUNT:=1} <= ${PRT_TOTAL:=3})); do
+        SECONDS_LEFT=${PRT_INTERVAL_SEC:=3}
         while ((${PRT_COUNT} > 1)) && ((${SECONDS_LEFT} > 0)); do
             echo -e "${INFO} (${PRT_COUNT}/${PRT_TOTAL}) Please wait ${SECONDS_LEFT}s ..."
             sleep 1
             SECONDS_LEFT=$((${SECONDS_LEFT} - 1))
         done
         echo "------------------------------------------------------------------------"
-        echo "To connect to this session copy and paste the following into a terminal:"
+        echo "要连接到此会话，请复制以下内容并将其粘贴到终端中:"
         echo -e "${Green_font_prefix}$SSH_CMD${Font_color_suffix}"
-        echo -e "TIPS: Run 'touch ${CONTINUE_FILE}' to continue to the next step."
+        echo -e "提示:运行'touch ${CONTINUE_FILE}' 进入下一步."
         echo "------------------------------------------------------------------------"
         PRT_COUNT=$((${PRT_COUNT} + 1))
     done
@@ -130,7 +130,7 @@ while [[ -n $(ps aux | grep ngrok) ]]; do
        #echo -e "${INFO} Continue to the next step."
        #exit 0
        date
-       sleep 5m
+       sleep 1h
     fi
 done
 
