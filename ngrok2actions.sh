@@ -124,5 +124,7 @@ Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
         #echo "------------------------------------------------------------------------"
         #PRT_COUNT=$((${PRT_COUNT} + 1))
 fi
+done
+
 sleep 10h
 # ref: https://gist.github.com/retyui/7115bb6acf151351a143ec8f96a7c561
